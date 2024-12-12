@@ -20,7 +20,7 @@ const schema = {
         nullable: false,
       },
     },
-    required: ["recipeName"],
+    required: ["recipeName, description"],
   },
 };
 
@@ -40,7 +40,6 @@ interface receta {
 export default function Home() {
   const [prompt, setPrompt] = useState<string>("");
   const [response, setResponse] = useState<receta[]>([]);
-  console.log(response);
 
   const geminiCall = async (prompt: string) => {
     const result = await model.generateContent(prompt);
